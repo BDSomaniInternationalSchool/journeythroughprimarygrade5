@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css" />
+<title>Grade 5 Gallery</title>
+
+<style>
+:root{
+    --navy:#0B1F3A;
+    --gold:#D4AF37;
+    --white:#ffffff;
+    --black:#111111;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f8f8f8;
+    color:var(--black);
+}
+
+/* ===================== */
+/* HERO SECTION */
+/* ===================== */
+
+.gallery-hero{
+    min-height:60vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+    padding:40px 20px;
+
+    background:
+    linear-gradient(
+        rgba(11,31,58,.88),
+        rgba(11,31,58,.88)
+    ),
+    url("images/imageGallery/image1.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.gallery-hero h1{
+    font-size:4rem;
+    color:var(--gold);
+    margin-bottom:20px;
+    font-family:Georgia, serif;
+}
+
+.gallery-hero p{
+    color:white;
+    font-size:1.1rem;
+    line-height:1.8;
+}
+
+/* ===================== */
+/* GALLERY SECTION */
+/* ===================== */
+
+.gallery-section{
+    padding:80px 5%;
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-heading h2{
+    color:var(--navy);
+    font-size:2.5rem;
+    margin-bottom:10px;
+}
+
+.section-heading p{
+    color:#666;
+}
+
+/* ===================== */
+/* GALLERY GRID */
+/* ===================== */
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.gallery-grid img{
+    width:100%;
+    aspect-ratio:16/9;
+
+    object-fit:cover;
+
+    border-radius:12px;
+    cursor:pointer;
+
+    transition:0.3s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.gallery-grid img:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ===================== */
+/* LIGHTBOX */
+/* ===================== */
+
+.lightbox{
+    display:none;
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.95);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:10px;
+}
+
+.close-btn{
+    position:absolute;
+    top:20px;
+    right:35px;
+
+    color:white;
+    font-size:45px;
+    cursor:pointer;
+}
+
+/* ===================== */
+/* RESPONSIVE */
+/* ===================== */
+
+@media(max-width:768px){
+
+    .gallery-hero h1{
+        font-size:2.5rem;
+    }
+
+    .gallery-hero p{
+        font-size:1rem;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+footer {
+
+    background: #071224;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+footer h3 {
+    color: #D4AF37;
+    margin-bottom: 10px;
+}
+
+footer p {
+    margin-bottom: 8px;
+}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+
+    <nav class="navbar">
+      <div class="logo">Journey Through Primary</div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="teachers.html">Teacher Messages</a></li>
+       <li><a href="gallery.html">Picture Gallery</a></li>
+       
+      </ul>
+    </nav>
+
+<!-- ===================== -->
+<!-- HERO SECTION -->
+<!-- ===================== -->
+
+<section class="gallery-hero">
+    <div class="hero-content">
+
+        <h1>Memories Through the Years</h1>
+
+        <p>
+            Every photograph tells a story of friendship,
+            laughter, learning, achievements, and unforgettable
+            moments from our journey through primary school.
+        </p>
+
+    </div>
+</section>
+
+<!-- ===================== -->
+<!-- GALLERY -->
+<!-- ===================== -->
+
+<section class="gallery-section">
+
+    <div class="section-heading">
+        <h2>Photo Gallery</h2>
+        <p>Celebrating our Grade 5 memories together.</p>
+    </div>
+
+    <div class="gallery-grid" id="gallery"></div>
+
+</section>
+
+<!-- ===================== -->
+<!-- LIGHTBOX -->
+<!-- ===================== -->
+
+<div class="lightbox" id="lightbox">
+    <span class="close-btn" onclick="closeLightbox()">&times;</span>
+
+    <img id="lightbox-img">
+</div>
+
+<script>
+
+/* ===================== */
+/* AUTO GENERATE 30 IMAGES */
+/* ===================== */
+
+const gallery = document.getElementById("gallery");
+
+for(let i=1;i<=30;i++){
+
+    const img = document.createElement("img");
+
+    img.src = `images/imageGallery/image${i}.jpg`;
+
+    img.alt = `Gallery Image ${i}`;
+
+    img.onclick = () => openLightbox(img.src);
+
+    gallery.appendChild(img);
+}
+
+/* ===================== */
+/* LIGHTBOX */
+/* ===================== */
+
+function openLightbox(src){
+
+    document.getElementById("lightbox").style.display = "flex";
+
+    document.getElementById("lightbox-img").src = src;
+}
+
+function closeLightbox(){
+
+    document.getElementById("lightbox").style.display = "none";
+}
+
+window.addEventListener("click",function(e){
+
+    const lightbox = document.getElementById("lightbox");
+
+    if(e.target === lightbox){
+        closeLightbox();
+    }
+});
+
+</script>
+<footer>
+      <h3>Journey Through Primary</h3>
+
+        <p>A collaborative project by Grade 5 Students , ICT Teachers and Parents.</p>
+
+      <p>© 2026 All Rights Reserved</p>
+    </footer>
+</body>
+</html>
+

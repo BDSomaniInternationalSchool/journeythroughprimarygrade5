@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers' Messages</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        /* ========================= */
+        /* TABLET RESPONSIVE */
+        /* ========================= */
+
+        @media (max-width: 1024px) {
+
+            .navbar {
+                padding: 15px 30px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .card,
+            .wide-card {
+                width: 90%;
+                max-width: 500px;
+            }
+        }
+
+
+        /* ========================= */
+        /* MOBILE RESPONSIVE */
+        /* ========================= */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .logo {
+                font-size: 22px;
+                text-align: center;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 50px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+                padding: 0 15px;
+            }
+
+            .cards {
+                gap: 20px;
+                padding: 0 15px;
+            }
+
+            .card,
+            .wide-card {
+                width: 100%;
+                min-height: auto;
+            }
+
+            .card img,
+            .wide-card img {
+                height: 300px;
+            }
+
+            .card-content {
+                padding: 15px;
+            }
+
+            .card h2 {
+                font-size: 1.3rem;
+            }
+
+            .designation {
+                font-size: 0.9rem;
+            }
+
+            .preview {
+                font-size: 0.95rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .modal {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.8);
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+
+                z-index: 9999;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+                position: relative;
+                z-index: 10000;
+            }
+
+            .modal-content img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .modal-content p {
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            footer {
+                padding: 30px 15px;
+            }
+        }
+
+
+        /* ========================= */
+        /* EXTRA SMALL PHONES */
+        /* ========================= */
+
+        @media (max-width: 480px) {
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero h2 {
+                font-size: 1rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .card img,
+            .wide-card img {
+                height: 250px;
+            }
+
+            .card-content {
+                padding: 12px;
+            }
+
+            .btn {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 20px 80px;
+
+            background: #0B1F3A;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            color: #D4AF37;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #D4AF37;
+        }
+
+        footer {
+
+            background: #071224;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 40px 20px;
+        }
+
+        footer h3 {
+            color: #D4AF37;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        :root {
+            --gold: #D4AF37;
+            --navy: #0B1F3A;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--navy);
+            margin-bottom: 40px;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+
+        }
+
+        .wide-card {
+            width: 100%;
+            min-height: 400px;
+            /* optional */
+            background: white;
+            border-radius: 15px;
+            /* overflow: hidden; */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .card {
+            width: 450px;
+            /* fixed width */
+            min-height: 500px;
+            /* optional */
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 540px;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h2 {
+            color: var(--navy);
+            margin-bottom: 5px;
+        }
+
+        .designation {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .preview {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .btn {
+            margin-top: 15px;
+            background: var(--navy);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--gold);
+            color: black;
+        }
+
+        /* Modal */
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: auto;
+            border: 4px solid var(--gold);
+        }
+
+        .modal-content h2 {
+            text-align: center;
+            color: var(--navy);
+            margin-top: 15px;
+        }
+
+        .modal-content h4 {
+            text-align: center;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .modal-content p {
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .close {
+            position: sticky;
+            top: 0;
+            float: right;
+            font-size: 30px;
+            cursor: pointer;
+            background: white;
+            z-index: 10001;
+        }
+
+        .hero {
+            max-height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+
+            background:
+                linear-gradient(rgba(11, 31, 58, 0.85),
+                    rgba(11, 31, 58, 0.85)),
+                url("images/hero-bg.jpg");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-family: Georgia, serif;
+            color: #D4AF37;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 750px;
+            margin: auto;
+            color: #f5f5f5;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar" style="position: relative;">
+        <div class="logo">Journey Through Primary</div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="teachers.html">Teacher Messages</a></li>
+            <li><a href="gallery.html">Picture Gallery</a></li>
+
+        </ul>
+    </nav>
+    <section class="hero">
+        <div class="hero-content">
+
+            <h1>A Journey Through Primary</h1>
+
+            <h2>Messages from Our Leadership Team & Teachers</h2>
+
+            <p>
+                As our Grade 5 students prepare to embark on a new chapter,
+                we celebrate their growth, achievements, and unforgettable
+                memories through heartfelt messages from the educators who
+                guided them along the way.
+            </p>
+
+        </div>
+    </section>
+
+
+
+
+
+    <section class="section">
+        <h1>Messages from the Heads</h1>
+
+        <div class="cards">
+
+            <!-- Principal -->
+            <div class="card">
+                <img src="images/Teachers/shilpa.jpg" alt="">
+                <div class="card-content">
+                    <h2>Ms Shilpa Sharma</h2>
+                    <p class="designation">Principal</p>
+
+                    <p class="preview">
+                        As I sit down to write this message...
+                    </p>
+
+                    <button class="btn" onclick="openModal(
+                    'images/Teachers/shilpa.jpg',
+                    'Ms Shilpa Sharma',
+                    'Principal',
+                    `Moving Half a Floor Up
+As I sit down to write this message, I find myself reflecting on a journey that began long before I became a part of it.
+Many of you arrived in Primary School at an age when Grade 5 must have seemed impossibly distant. 
+
+Looking through the photographs that fill these pages, I am reminded of how much can change in what, in retrospect, feels like a remarkably brief span of time. Faces become more familiar with age, friendships acquire greater depth, confidence emerges, and children gradually develop a clearer understanding of themselves and the world around them. Schools are fortunate in that they allow us to witness these transformations, even if we do not always appreciate them fully while they are taking place.
+My own privilege has been to observe the final two years of your Primary School journey.
+
+When I think about this cohort, I find myself remembering fewer individual achievements than I expected. What lingers instead is a growing sense of independence that became increasingly visible as the months passed. Students who once sought reassurance began trusting their own judgement more readily. Questions became more thoughtful. Conversations acquired greater nuance. There was a discernible willingness to persist with ideas and challenges that did not yield immediate answers.
+This year, in particular, demanded a considerable amount from you. 
+
+The Exhibition required sustained inquiry, intellectual rigour, and the patience to remain committed to a question long after the initial excitement had faded. Some of you represented the school through Junior Model United Nations. Others contributed through the Primary School Student Council, sport, the arts, and a host of endeavours that unfolded far from public attention. The experiences themselves were varied, yet they seemed to be asking something similar of you. They required you to become increasingly comfortable with uncertainty, exercise sound judgement, and take greater ownership of your learning.
+One of the curiosities of education is that growth rarely announces itself dramatically. 
+
+More often, it reveals itself through moments that seem unremarkable at the time. A student develops the confidence to express an original opinion. Another discovers that perseverance is often more valuable than immediate success. Someone uncovers an interest that was previously hidden from view and pursues it with genuine commitment. Looking back, it is these quieter moments that seem most significant.
+As people must already be reminding you with increasing frequency, you are about to leave Primary School and begin Middle School. That is, of course, the official version of events. I have always been rather partial to a different interpretation.
+
+'You are simply moving half a floor up.'
+There is a tendency in schools to regard such transitions as profound departures. In reality, your journey continues within the same community that has encouraged you to be curious, compassionate, thoughtful, and willing to engage with ideas that challenge your assumptions. The years ahead will undoubtedly bring new opportunities, greater responsibilities, and fresh challenges, but they remain part of the same story whose opening chapters began many years ago.
+If your time in Primary School has demonstrated anything, it is that young people are capable of considerably more than they sometimes imagine. Over the past two years, I have seen abundant evidence of that truth.
+The photographs on these pages capture where you have been. 
+
+They cannot, of course, capture everything that lies ahead. That part of the story remains unwritten.
+For now, however, I hope you take a moment to appreciate how far you have come.
+After all, you are not really leaving.
+You are simply moving half a floor up.
+
+Ms. Shilpa Sharma
+Principal, Primary School`
+                    )">
+                        Read More
+                    </button>
+                </div>
+            </div>
+
+            <!-- Vice Principal -->
+            <div class="card">
+                <img src="images/Teachers/natasha.PNG" alt="">
+                <div class="card-content">
+                    <h2>Ms Natasha Contractor</h2>
+                    <p class="designation">Vice Principal & PYP Coordinator</p>
+
+                    <p class="preview">
+                        Dear Grade 5 Learners...
+                    </p>
+
+                    <button class="btn" onclick="openModal(
+                    'images/Teachers/natasha.PNG',
+                    'Ms Natasha Contractor',
+                    'Vice Principal & PYP Coordinator',
+                    `Dear Grade 5 Learners,
+As you prepare to move from Primary to Middle School, I find myself reflecting on the last two
+years and feeling incredibly grateful for the time we have shared together.
+Getting to know all of you has been a privilege and one of the most memorable parts of my role
+here at BDSIS. 
+
+We have shared so many moments along the way - learning together, travelling
+on the LWW trip, celebrating successes, sharing laughter, and at times, having those important
+conversations that helped us all grow. Every one of those moments has been a part of your
+story and mine.
+
+One of my greatest joys has been watching you embrace the PYP framework and truly flourish
+as inquirers, thinkers and caring young individuals. You have grown not only in terms of
+knowledge, but also in confidence, independence and character. I hope you are as proud of
+yourselves as we are of you.
+
+As you take this next step, I want you to know how inspired I am by all that you have
+accomplished and how excited I am for all that lies ahead. Middle School will bring new
+opportunities, new challenges and new adventures, and I have no doubt that you will approach
+them with the same curiosity, resilience and enthusiasm that you have shown throughout your
+time in Primary.
+
+While this feels like a farewell of sorts, it is also a very special one because you are only half a
+floor away. You may be moving on, but you will always have a home with us. Please stop by,
+say hello in the corridors, share your stories and let us know about all the exciting things you are
+doing. Nothing would make us happier than seeing you continue to grow and thrive.
+Good luck and best wishes for this wonderful new chapter.
+
+We will miss seeing you as part of our everyday hustle and bustle, but we are very glad that you're still going to be around, so we
+get to miss you a little less.
+
+With love, fondness and lots of good wishes,
+Ms. Natasha`
+                    )">
+                        Read More
+                    </button>
+                </div>
+            </div>
+
+            <!-- Assistant Coordinator -->
+            <div class="card">
+                <img src="images/Teachers/pallavi.jpg" alt="">
+                <div class="card-content">
+                    <h2>Ms Pallavi Narain</h2>
+                    <p class="designation">Assistant PYP Coordinator</p>
+
+                    <p class="preview">
+                        Dear Grade 5 Students,
+
+                        As you prepare to take your next exciting step into Grade 6....
+                    </p>
+
+                    <button class="btn" onclick="openModal(
+                    'images/Teachers/pallavi.jpg',
+                    'Ms Pallavi Narain',
+                    'Assistant PYP Coordinator',
+                    `Dear Grade 5 Students,
+
+As you prepare to take your next exciting step into Grade 6, I want to take a moment to celebrate all that you have achieved during your Primary journey.
+
+Over the years, you have grown into thoughtful inquirers, caring friends, creative thinkers, and responsible members of our school community. You have asked meaningful questions, embraced challenges, reflected on your learning, and taken action to make a positive difference in the world around you. These are achievements that extend far beyond the classroom.
+
+The Passion Project undertaken by you clearly brought out attributes of being knowledgeable, resilient, and open-minded on your part.
+
+As you leave Grade 5 and move to Grade 6, know that we are incredibly proud of each one of you. The friendships you have built, the lessons you have learned, and the memories you have created will always remain a special part of your journey.
+
+Continue to be courageous learners, compassionate leaders, and lifelong inquirers. We look forward to seeing all that you will accomplish in the years ahead.
+
+Congratulations on completing this important milestone. Enjoy your well-deserved break and get ready for an amazing adventure in Grade 6!
+
+With warm wishes,
+Pallavi Narain
+Assistant PYP Coordinator`
+                    )">
+                        Read More
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ========================= -->
+    <!-- MESSAGES FROM TEACHERS -->
+    <!-- ========================= -->
+
+    <section class="section">
+        <h1>Messages from Teachers</h1>
+
+        <div class="cards">
+
+            <!-- Grade 5 Team -->
+            <div class=" card wide-card">
+                <img src="images/Teachers/Grade5.jpg" alt="">
+                <div class="card-content">
+                    <h2>Grade 5 Team</h2>
+                    <p class="designation">
+                        Ms Sana, Ms Priyanka, Ms Nehal, Ms Dishma,
+                        Ms Umme Mehr, Ms Joanita
+                    </p>
+
+                    <p class="preview">
+                        As you move on to Grade 6, we hope you...
+                    </p>
+
+                    <button class="btn" onclick="openModal(
+                    'images/Teachers/Grade5.jpg',
+                    'Grade 5 Team',
+                    'Homeroom Teachers',
+                    `As you move on to Grade 6, we hope you carry forward the confidence, curiosity, and kindness that made this cohort so special. You have impressed us not only with your strong academic abilities, but also with the way you supported one another, worked together, and grew as learners throughout the year. Each one of you has brought something unique to the classroom, making this journey both meaningful and memorable. Keep asking questions, taking risks, and believing in yourselves as you step into this exciting new chapter. We are incredibly proud of all that you have achieved and cannot wait to see what you accomplish next. `
+                    )">
+                        Read More
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hindi -->
+            <div class="card">
+                <img src="images/Teachers/hindi.jpg" alt="">
+                <div class="card-content">
+                    <h2>Hindi Specialists</h2>
+                    <p class="designation">Ms Sadhana & Ms Saroj</p>
+
+                    <p class="preview">
+                        अब बड़े सपनों की राह पर आपने कदम बढ़ाए हैं।...
+                    </p>
+
+                    <button class="btn" onclick="openModal(
+                    'images/Teachers/hindi.jpg',
+                    'Hindi Specialists',
+                    'Hindi',
+                    `नन्हे कदमों से चलकर आप यहाँ तक आए हैं,
+
+अब बड़े सपनों की राह पर आपने कदम बढ़ाए हैं। यादों की खुशबू दिल में प्यार बनाए रखना ,
+
+शिक्षकों का प्यार और सीख हमेंशा याद रखना
+
+तुमको सिखाया क ,ख ,ग  अब life के lesson पढ़ने हैं,
+
+थोड़ी मस्ती कम करना…  क्योंकि अब बड़े सपने गढ़ने हैं। 
+
+गलतियाँ करोगे तो याद रखना — teacher ने ही सिखाया है,
+
+गिरकर उठना ही असली जीत का रास्ता बताया है। 
+
+हम न रहकर भी , याद ज़रूर आएँगे,जब homework ज्यादा होगा…
+
+तब हमें ही याद कर आप सब  मुस्कुराएँगे | `
+                    )">
+                        Read More
+                    </button>
+                </div>
+            </div>
+
+            <!-- Marathi -->
+            <div class="card">
+                <img src="images/Teachers/marathi.jpeg" alt="">
+                <div class="card-content">
+                    <h2>Marathi Specialists</h2>
+                    <p class="designation">Ms Shilpa</p>
+
+                    <p class="preview">
+                        उडत्या पाखरांना परतीची तमा नसावी,
+                        नजरेत नेहमी नवी दिशा असावी,...
+                    </p>
+
+                    <button class="btn" onclick="openModal(
+                    'images/Teachers/marathi.jpeg',
+                    'Marathi Specialists',
+                    'Marathi',
+                    `उडत्या पाखरांना परतीची तमा नसावी,
+नजरेत नेहमी नवी दिशा असावी, घरट्याच काय
+केव्हाही बांधता येईल, क्षितिज्यापलीकडे झेप
+घेण्याची मनात जिद्द असावी.
+
+udtya pakharana partichi
+tama nasavi, najret navi
+disha asavi, ghartyach ka
+kevhahi bandhata yeil,
+kshitijyapalikade jhep
+ghenyachi manat jidd asavi.
+
+`
+                    )">
+                        Read More
+                    </button>
+                </div>
+            </div>
+
+            <!-- PSPE -->
+            <div class="card wide-card" style="width: 600px;">
+                <img src="images/Teachers/PSPE.jpeg" alt="">
+                <div class="card-content">
+                    <h2>PSPE </h2>
+                    <p class="designation">
+                        Raj Sir, Eranna Sir,
+                        Ms Priyanka, Ms Hiral
+                    </p>
+
+                    <p class="preview">
+                        Dear Grade 5, before you go,
+                        There are a few things you should know…
+                    </p>
+
+                    <button class="btn" onclick="openModal(
+                    'images/Teachers/PSPE.jpeg',
+                    'PSPE ',
+                    'PSPE',
+                    `Dear Grade 5, before you go,
+There are a few things you should know… 
+
+You learned to pass, shoot, run, and play,
+And somehow still asked,
+Coach… are we doing fitness today?
+
+Middle School teachers may not know it yet, it’s true,
+Who always asks,
+“Can we play a game today?” 
+
+Middle School may be harder, that is true,
+But please don’t forget how to line up in two! 
+
+And remember… no matter how big you get,
+Your coaches will still notice if you forget to warm up yet! 
+
+From basketball courts, football fields, and cricket nets,
+You gave us memories we will never forget.
+Keep laughing, keep playing, keep aiming high,
+Grade 5 champions… Now it’s your turn to fly! 🏀⚽🏏
+
+`
+                    )">
+                        Read More
+                    </button>
+                </div>
+            </div>
+
+            <!-- ICT -->
+            <div class="card">
+                <img src="images/Teachers/ict.JPG" alt="">
+                <div class="card-content">
+                    <h2>ICT Specialists</h2>
+                    <p class="designation">Ms Zobiya & Ms Minaz</p>
+
+                    <p class="preview">
+                        To my amazing Grade 5 digital creators...
+                    </p>
+
+                    <button class="btn" onclick="openModal(
+                    'images/Teachers/ict.JPG',
+                    'ICT Specialists',
+                    'ICT',
+                    `To my amazing Grade 5 digital creators,
+
+You arrived as curious learners and are leaving as confident digital creators. From coding and problem-solving to designing and collaborating, you have grown in so many wonderful ways.
+
+As you move on to Secondary School, continue to think creatively, explore fearlessly, and use technology to make a difference. May your future be filled with endless opportunities, exciting discoveries, and successful new beginnings.
+
+Keep learning, keep creating, and keep shining!
+Best wishes,
+ICT Teachers
+
+`
+                    )">
+                        Read More
+                    </button>
+                </div>
+            </div>
+
+            <!-- Drama -->
+            <div class="card">
+                <img src="images/Teachers/Drama.jpeg" alt="">
+                <div class="card-content">
+                    <h2>Drama Specialists</h2>
+                    <p class="designation">Ms Namrata & Ms Aparna</p>
+
+                    <p class="preview">
+                        When life feels uncertain and you’re not quite...
+                    </p>
+
+                    <button class="btn" onclick="openModal(
+                    'images/Teachers/Drama.jpeg',
+                    'Drama Specialists',
+                    'Drama',
+                    `When life feels uncertain and you’re not quite sure what to do, we hope you can return to your learnings from Becoming Me and remind yourself, “You’ve got this.” just like Ayaansh, Sunil and Meera.
+
+
+Rememberv- life is one big play. Some scenes feel never-ending and some are over in a flash. Enjoy the fun ones, learn from the tricky ones and when things get tough, improvise!! Hang in there, cross your fingers and wait for the next scene!
+`
+                    )">
+                        Read More
+                    </button>
+                </div>
+            </div>
+
+            <!-- Music -->
+            <div class="card">
+                <img src="images/Teachers/music.jpg" alt="">
+                <div class="card-content">
+                    <h2>Music Specialists</h2>
+                    <p class="designation">Ms Agnes & Ameya Sir</p>
+
+                    <p class="preview">
+                        Dear Grade 5,
+                        You came to us with curious hearts...
+                    </p>
+
+                    <button class="btn" onclick="openModal(
+                    'images/Teachers/music.jpg',
+                    'Music Specialists',
+                    'Music',
+                    `Dear Grade 5,
+
+You came to us with curious hearts,
+And slowly found your voice,
+Through every note, through every beat,
+You filled the air with joy
+
+Now as you step beyond,
+Carry what you've learned.
+
+Music lives inside of you.
+
+So,
+
+Go write the next verse, 
+Let every moment ring,
+May your lyrics bring joy,
+No matter where you sing.
+
+With love, with rhythm,
+
+Your Music Teachers 
+`
+                    )">
+                        Read More
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mathematics -->
+            <div class="card">
+                <img src="images/Teachers/math.PNG" alt="">
+                <div class="card-content">
+                    <h2>Mathematics Specialists</h2>
+                    <p class="designation">Ms Nimisha</p>
+
+                    <p class="preview">
+                        As we come to the end of this wonderful ...
+                    </p>
+
+                    <button class="btn" onclick="openModal(
+                    'images/Teachers/math.jpg',
+                    'Mathematics Specialists',
+                    'Mathematics',
+                    `As we come to the end of this wonderful journey together, I wish each one of you all  the very best for all your future endeavors. Watching you grow, learn, explore, and overcome challenges this year has been truly special.
+
+From solving difficult math problems to sharing thoughtful ideas and supporting one another, you have shown perseverance, courage, and a love for learning.
+
+As you move on to the next chapter of your journey, remember to believe in yourselves and never be afraid to make mistakes, ask questions, or try something new. 
+
+Wishing all of you happiness, confidence, success, and endless opportunities in the years ahead. Keep shining and continue to make yourselves and your families proud.
+
+From,
+Ms. Nimisha
+
+`
+                    )">
+                        Read More
+                    </button>
+                </div>
+            </div>
+
+            <!-- Art -->
+            <div class="card">
+                <img src="images/Teachers/art.jpeg" alt="">
+                <div class="card-content">
+                    <h2>Art Design & Visual Art</h2>
+                    <p class="designation">
+                        Aditya Sir & Ms Priyadarshini
+                    </p>
+
+                    <p class="preview">
+                        emember: if secondary school gets tough...
+                    </p>
+
+                    <button class="btn" onclick="openModal(
+                    'images/Teachers/art.jpeg',
+                    'Art Design & Visual Art',
+                    'Visual Arts',
+                    `Art & Design: “Remember: if secondary school gets tough, just nod confidently like you understand everything — it worked in Grade 5 too!” 😉
+
+All the best, y’all! Wishing you joy, creativity, and success in all that you do! 💕
+
+Visual Art: To my Grade 5 artists, bright and true,
+Middle school now waits for you.
+Keep creating, dream and explore,
+There’s always magic in art and more.
+
+With colours, courage, and minds so bright,
+May you continue to shine your light.
+All the best on your journey ahead,
+May your canvas be with happy colours spread.`
+                    )">
+                        Read More
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Modal -->
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+
+            <img id="modalImg">
+            <h2 id="modalName"></h2>
+            <h4 id="modalDesignation"></h4>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(img, name, designation, message) {
+            document.getElementById("modalImg").src = img;
+            document.getElementById("modalName").innerText = name;
+            document.getElementById("modalDesignation").innerText = designation;
+            document.getElementById("modalMessage").innerText = message;
+
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById("modal");
+
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <!-- FOOTER -->
+
+    <footer>
+        <h3>Journey Through Primary</h3>
+
+        <p>A collaborative project by Grade 5 Students, ICT Teachers & Parents.</p>
+
+        <p>© 2026 All Rights Reserved</p>
+    </footer>
+</body>
+
+</html>
